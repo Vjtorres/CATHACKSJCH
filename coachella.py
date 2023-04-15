@@ -1,16 +1,54 @@
 #Import csv files
 import pandas as pd
-BBHot = pd.read_csv('billboard_hot_100.csv', sep = ",")
+import sys
+coachlineup = pd.read_csv('CoachLineupD1.csv', sep = ",")
 
-#print("\nInput CSV file = \n", BBHot)
+#Function to ask user for input
+def GetUsrIn(test):
+    i = 0
+    length = len(test)
+    while i < length:
+        i = 0
+        print("\nPlease enter your preferred genre of music from this list below:")
+        print("hip hop, pop, rap, edm, indie, country, rock, r&b")
+        print("If the genre is not found, you will be asked to enter a new one.")
+        UsrInput = input("Enter a genre or press q to quit: ")
+        if UsrInput == "q":
+            sys.exit(0)
+        j = 0
+        while j < length:
+            if UsrInput == test[j]: 
+                print(UsrInput)
+                j = length
+                i = length
+            j += 1
+    return UsrInput
+genres = ["hip hop", "pop", "rap", "edm", "indie", "country", "rock", "r&b"]
 
-#Asks user for genre input
-usergenre = input("\nPlease enter your preferred genre of music (all lowercase).\n")
+usergenre = GetUsrIn(genres)
+print(usergenre)
+
+
+
+
+# print("\nPlease enter your preferred genre of music from this list below:")
+# usergenre = input("hip hop, pop, rap, edm, indie, country, rock, r&b.\n")
+
 
 #Sorts and prints the billboard file to meet genre requirements
-sortbyGenre = BBHot[BBHot["Genres"]==usergenre]
+sortbyGenre = coachlineup[coachlineup["Genre"]==usergenre]
 print("\nSorted CSV by genre = \n", sortbyGenre)
 
-#Sorts and prints the names of the genre sorted list by name
-sortbyName = sortbyGenre.loc[:,"Artist Name(s)"]
-print("\nSorted CSV by name from genre sort = \n", sortbyName)
+#Separates the data into lists
+listNames = sortbyGenre['Artist'].tolist()
+listStartTime = sortbyGenre['Start'].tolist()
+listEndTime = sortbyGenre['End'].tolist()
+
+#Reverses the order of the lists to fix time error
+finlistNames = listNames.reverse()
+finlistStartTime = listStartTime.reverse()
+finlistEndTime = listEndTime.reverse()
+
+print(listNames)
+print(listStartTime)
+print(listEndTime)
