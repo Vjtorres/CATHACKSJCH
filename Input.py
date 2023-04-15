@@ -9,10 +9,14 @@ def GetUsrIn(test):
             break
         j = 0
         while j < length:
-            if UsrInput != test[j]: 
-                i+=1 
+            print(UsrInput)
+            if UsrInput == test[j]: 
+                print(UsrInput)
+                j = length
+                i = length
             j += 1
     return UsrInput
 
-
-    
+test = ["1", "2"]
+input = GetUsrIn(test)
+print(input)
