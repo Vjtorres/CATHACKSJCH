@@ -1,0 +1,11 @@
+def Scheduler(artists, times):
+    schedule = []
+    
+
+
+    return schedule
+
+
+artist = ["Frank Ocean", "Conan Gray", "A Boogie Wit Da Hoodie", "Lizzy McAlpine"]
+time = [0, 2 , 4, 4]
+Scheduler(artist, time)
