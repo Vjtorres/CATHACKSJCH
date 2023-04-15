@@ -14,8 +14,5 @@ def GetUsrIn(test):
             j += 1
     return UsrInput
 
-test = ["10", "11"]
-UsrIn = GetUsrIn(test)
-print(UsrIn)
 
     
