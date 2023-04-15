@@ -1,7 +1,7 @@
 #Import csv files
 import pandas as pd
 import sys
-coachlineup = pd.read_csv('CoachLineupD1.csv', sep = ",")
+coachlineup = pd.read_csv("Coachella_Day_1.csv", sep = ",")
 
 #Function to ask user for input
 def GetUsrIn(test):
@@ -49,6 +49,46 @@ finlistNames = listNames.reverse()
 finlistStartTime = listStartTime.reverse()
 finlistEndTime = listEndTime.reverse()
 
-print(listNames)
-print(listStartTime)
-print(listEndTime)
+#print(listNames)
+#print(listStartTime)
+#print(listEndTime)
+
+coachlineup = pd.read_csv("Coachella_Day_2.csv", sep = ",")
+
+#Sorts and prints the billboard file to meet genre requirements
+sortbyGenre = coachlineup[coachlineup["Genre"]==usergenre]
+print("\nSorted CSV by genre = \n", sortbyGenre)
+
+#Separates the data into lists
+listNames = sortbyGenre['Artist'].tolist()
+listStartTime = sortbyGenre['Start'].tolist()
+listEndTime = sortbyGenre['End'].tolist()
+
+#Reverses the order of the lists to fix time error
+finlistNames = listNames.reverse()
+finlistStartTime = listStartTime.reverse()
+finlistEndTime = listEndTime.reverse()
+
+#print(listNames)
+#print(listStartTime)
+#print(listEndTime)
+
+coachlineup = pd.read_csv("Coachella_Day_3.csv", sep = ",")
+
+#Sorts and prints the billboard file to meet genre requirements
+sortbyGenre = coachlineup[coachlineup["Genre"]==usergenre]
+print("\nSorted CSV by genre = \n", sortbyGenre)
+
+#Separates the data into lists
+listNames = sortbyGenre['Artist'].tolist()
+listStartTime = sortbyGenre['Start'].tolist()
+listEndTime = sortbyGenre['End'].tolist()
+
+#Reverses the order of the lists to fix time error
+finlistNames = listNames.reverse()
+finlistStartTime = listStartTime.reverse()
+finlistEndTime = listEndTime.reverse()
+
+#print(listNames)
+#print(listStartTime)
+#print(listEndTime)
